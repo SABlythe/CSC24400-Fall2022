@@ -5,7 +5,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	ifstream ifile("data.txt");
+	ifstream ifile("input2.data");
 
 	if (!ifile)
 	{
