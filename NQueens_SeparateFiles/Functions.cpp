@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Functions.hpp"
 
 #define BOARD_SIZE 100
 
@@ -113,17 +114,3 @@ void solveBoard(int size)
 }
 
 
-int main(int argc, char *argv[])
-{
-	cout << "How big do you want the board to be?";
-	int bSize;
-	cin >> bSize; 
-	
-	initBoard(bSize);
-	printBoard(bSize);
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-	solveBoard(bSize);
-	printBoard(bSize);
-	
-	return 0;
-}
