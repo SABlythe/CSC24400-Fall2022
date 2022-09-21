@@ -13,12 +13,16 @@ int main(int argc, char *argv[])
 	cin >> bSize; 
 	
 	QueensSolver mySolver(bSize);	
+	QueensSolver three(3);
 	//initBoard(bSize);
 	
 	mySolver.printBoard();
+	three.printBoard();
 	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 	mySolver.solveBoard();
 	mySolver.printBoard();
+	three.printBoard();
+	
 	
 	return 0;
 }

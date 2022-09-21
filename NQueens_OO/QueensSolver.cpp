@@ -3,19 +3,20 @@
 #include <iostream>
 #include "QueensSolver.hpp"
 
-#define BOARD_SIZE 100
+
 
 using namespace std;
 
-char board[BOARD_SIZE][BOARD_SIZE];
+
 
 QueensSolver::QueensSolver(int size)
 {
+	_bsize = size;
 	for (int row=0; row < size; row++)
 	{
 		for (int col=0; col < size; col++)
 		{
-			board[row][col] = ' ';
+			_board[row][col] = ' ';
 		}
 	}
 }
@@ -33,27 +34,28 @@ void printRowBorder(int numCols)
 void 
 QueensSolver::printBoard()
 {
-	printRowBorder(width);
-	for (int row=width-1; row >=0 ; row--)
+	printRowBorder(_bsize);
+	for (int row=_bsize-1; row >=0 ; row--)
 	{
 		cout << "|";
-		for (int col=0; col < width; col++)
+		for (int col=0; col < _bsize; col++)
 		{
-			cout << board[row][col] << "|";
+			cout << _board[row][col] << "|";
 		}
 		cout << endl;
-		printRowBorder(width);
+		printRowBorder(_bsize);
 	}
 	
 }
 
-bool canPlace (int atRow, int atCol, int bSize)
+bool 
+QueensSolver::canPlace (int atRow, int atCol)
 {
 	// check the row ....
 	for (int col=0; col<atCol; col++)
 	{
 		// is there a Q in this row at some other column ???
-		if (board[atRow][col] == 'Q')
+		if (_board[atRow][col] == 'Q')
 			return false;
 	}
 	// if we get here, there was no other queen in this row ...	
@@ -62,40 +64,41 @@ bool canPlace (int atRow, int atCol, int bSize)
 	int offset = 1;
 	while( atRow-offset >=0 && atCol-offset >=0 )
 	{
-		if (board[atRow-offset] [atCol-offset] == 'Q')
+		if (_board[atRow-offset] [atCol-offset] == 'Q')
 			return false;
 		offset++;
 	}
 	
 	// check the LL (lower left)	diagonal
 	offset = 1;
-	while( atRow+offset < bSize && atCol-offset >=0 )
+	while( atRow+offset < _bsize && atCol-offset >=0 )
 	{
-		if (board[atRow+offset] [atCol-offset] == 'Q')
+		if (_board[atRow+offset] [atCol-offset] == 'Q')
 			return false;
 		offset++;
 	}
 	return true;
 }
 
-bool solveBoard(int fromCol, int size)
+bool 
+QueensSolver::solveBoard(int fromCol)
 {
-	if (fromCol>=size)
+	if (fromCol>=_bsize)
 		return true;	
 	
 	else
 	{
-		for (int possibleRow =0; possibleRow<size; possibleRow++ )
+		for (int possibleRow =0; possibleRow<_bsize; possibleRow++ )
 		{
 			// is this location OK relative to everything already on board? 
-			if (canPlace (possibleRow, fromCol, size) )
+			if (canPlace (possibleRow, fromCol) )
 			{
 				// try to place a queen here ...
-				board[possibleRow][fromCol] = 'Q';
+				_board[possibleRow][fromCol] = 'Q';
 
 
 
-				bool worked = solveBoard(fromCol+1, size);
+				bool worked = solveBoard(fromCol+1);
 			
 				if (worked)
 				{
@@ -105,7 +108,7 @@ bool solveBoard(int fromCol, int size)
 				{
 					// solution couldn't be found with queen at this location ...
 					//    remove the queen. 
-					board[possibleRow][fromCol] = ' ';
+					_board[possibleRow][fromCol] = ' ';
 				}
 			}	
 		}
@@ -116,7 +119,7 @@ bool solveBoard(int fromCol, int size)
 void 
 QueensSolver::solveBoard()
 {
-	solveBoard(0, size);
+	solveBoard(0);
 }
 
 
