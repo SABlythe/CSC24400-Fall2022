@@ -18,6 +18,17 @@ Complex::operator+(Complex otherNumber)
 }
 
 Complex 
+Complex::operator+(double realNumber)
+{
+	Complex answer;
+	answer._real = _real + realNumber;
+	answer._imaginary = _imaginary;
+	
+	return answer;
+}
+
+
+Complex 
 Complex::operator*(Complex other)
 {
 	Complex answer;
@@ -29,6 +40,17 @@ Complex::operator*(Complex other)
 	return answer;
 }
 	
+Complex operator+(double lhs, Complex rhs)
+{
+		Complex answer;
+		/* could do the following - it will work! 
+		answer._real = rhs._real + lhs;
+		answer._imaginary = rhs._imaginary;
+		*/
+		answer = rhs + lhs; 
+		// be careful --- this is NOT answer = lhs + rhs; 
 	
+		return answer;
+}	
 	
 	
