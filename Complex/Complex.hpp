@@ -17,12 +17,13 @@ public:
 		
 	void print();
 	
-	Complex operator+(Complex otherNumber);
-	Complex operator+(double realNumber);
+	const Complex operator+(const Complex &otherNumber) const;
+	Complex operator+(double realNumber) const;
 	
-	Complex operator*(Complex otherNumber);
+	Complex operator*(const Complex &otherNumber) const;
 	
-	friend Complex operator+(double lhs, Complex rhs);
+	friend Complex operator+(double lhs, const Complex &rhs);
+	friend std::ostream& operator<<(std::ostream &os, const Complex &c); 
 };
 
 

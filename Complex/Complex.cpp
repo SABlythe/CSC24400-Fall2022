@@ -8,28 +8,32 @@ Complex::print()
 	cout << _real << " + " << _imaginary << "i";
 }
 
-Complex 
-Complex::operator+(Complex otherNumber)
+const Complex 
+Complex::operator+(const Complex &otherNumber) const
 {
 	Complex answer (_real + otherNumber._real, 
 						 _imaginary + otherNumber._imaginary);
-	
+
+
+		
 	return answer;
 }
 
 Complex 
-Complex::operator+(double realNumber)
+Complex::operator+(double realNumber) const
 {
 	Complex answer;
 	answer._real = _real + realNumber;
 	answer._imaginary = _imaginary;
 	
+
+	
 	return answer;
 }
 
 
 Complex 
-Complex::operator*(Complex other)
+Complex::operator*(const Complex &other) const
 {
 	Complex answer;
 	
@@ -40,7 +44,7 @@ Complex::operator*(Complex other)
 	return answer;
 }
 	
-Complex operator+(double lhs, Complex rhs)
+Complex operator+(double lhs, const Complex &rhs)
 {
 		Complex answer;
 		/* could do the following - it will work! 
@@ -52,5 +56,15 @@ Complex operator+(double lhs, Complex rhs)
 	
 		return answer;
 }	
+
+ostream& operator<<(ostream &os, const Complex &c)
+{
+	os << c._real << " + " << c._imaginary << "i";
+	
+	return os;
+}
+
+
+
 	
 	

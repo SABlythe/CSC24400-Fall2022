@@ -29,8 +29,9 @@ int main(int argc, char *argv[])
 	
 	answer.print(); cout << endl;	
 	
-	// we'll implement this next time
-	//cout << answer << endl;	
+
+	cout << "The complex number is :" << answer << endl; 
+
 	
 	return 0;
 }
