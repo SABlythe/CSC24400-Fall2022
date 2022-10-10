@@ -15,6 +15,13 @@ public:
 	Complex(double realPart, double imaginaryPart) 
 		{_real = realPart; _imaginary = imaginaryPart;}
 		
+	double real() const {return _real;}	
+	double& real()  {return _real;}	
+
+	double imaginary() const {return _imaginary;}		
+	double& imaginary() {return _imaginary;}	
+
+	
 	void print();
 	
 	const Complex operator+(const Complex &otherNumber) const;

@@ -32,6 +32,25 @@ int main(int argc, char *argv[])
 
 	cout << "The complex number is :" << answer << endl; 
 
+	cout << "The imaginary part is: " << answer.imaginary() << endl;
+	cout << "The real part is: " << answer.real() << endl;
+	
+	answer.imaginary() = 3.1416;
+	cout << "The complex number is now:" << answer << endl; 
+		
 	
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
