@@ -5,9 +5,9 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 	int value =7;
-	int *myPtr;
-	myPtr = & value;
-	//myPtr = new int;	
+	int *myPtr = NULL;
+	//myPtr = & value;
+	myPtr = new int;	
 	
 	cout << value << endl;
 	cout << *myPtr << endl;
@@ -15,6 +15,8 @@ int main(int argc, char *argv[])
 	// causes crash later due to invalid address (34=0x22)
 	//myPtr = (int *) 34;
 	*myPtr = 34; 
+	
+	myPtr = new int;	
 	
 	cout << myPtr << endl;
 	cout << *myPtr << endl;	
