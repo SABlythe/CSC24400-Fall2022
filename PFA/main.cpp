@@ -19,6 +19,6 @@ int main(int argc, char *argv[])
 	}	
 	myArr.sort();	
 	
-	cout << myArr << endl;
+	cout << myArr;
 	return 0;
 }
