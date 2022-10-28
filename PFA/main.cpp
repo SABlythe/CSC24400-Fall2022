@@ -16,7 +16,10 @@ int main(int argc, char *argv[])
 			cout << "Yes, " << newVal << " added!" << endl;
 		else
 			cout << "Uh, oh ... add failed for " << newVal << "!";
-	}	
+	}
+	
+		
+		
 	myArr.sort();	
 	
 	cout << myArr;

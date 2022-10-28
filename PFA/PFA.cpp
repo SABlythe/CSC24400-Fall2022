@@ -26,6 +26,14 @@ PFA::add(int valueToAdd)
 	return false;
 }
 
+const PFA& 
+PFA::operator+= (int rhs)
+{
+	add(rhs); // (*this).add(rhs);    ...   or .... this->add(rhs); 
+	return *this;
+}	
+
+
 void mySwap (int &a, int &b)
 {
 	int temp = a;
@@ -58,6 +66,16 @@ PFA::sort()
 	
 istream& operator>> (istream &is, PFA &arr)
 {
+	int nextInt;
+	is >> nextInt;
+	
+	while (is)
+	{
+		arr.add(nextInt);
+		
+		is >> nextInt;
+	}
+
 	return is;
 }
 ostream& operator<<(ostream &os, const PFA &pfa)

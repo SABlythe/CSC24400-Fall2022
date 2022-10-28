@@ -14,6 +14,8 @@ public:
 	
 	//addItem
 	bool add(int valueToAdd);
+	const PFA& operator+= (int rhs);	
+	
 	
 	//sort
 	void sort();	
