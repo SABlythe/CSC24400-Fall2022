@@ -7,10 +7,27 @@ LinkedList::add(int newValue)
 {
 	ListNode *newNode = new ListNode(newValue);
 	
-	// "magic" to put newNode into the list
+	newNode -> next() = _head;
 	
-	_head = newNode; // not quite right ... we will fix next class
+	_head = newNode;
 	
+}
+void 
+LinkedList::addTail(int newValue)
+{
+	ListNode *newNode = new ListNode(newValue); // constructor sets next to NULL
+
+	if (_tail!=NULL)
+	{
+		// only works when list already has data ...
+		_tail->next() = newNode;
+		_tail = newNode;
+	}
+	else
+	{
+		_tail = newNode;	
+		_head = newNode;	
+	}
 }
 
 ostream& operator<<(ostream &os, const LinkedList &list)
