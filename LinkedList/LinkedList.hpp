@@ -16,6 +16,10 @@ public:
 	void add(int newValue);	
 	void addTail(int newValue);	
 	
+	ListNode* find(int value) const;
+	void remove(ListNode *node);
+	void remove(int value);	
+	
 	friend std::ostream& operator<<(std::ostream &os, const LinkedList &list);	
 };
 

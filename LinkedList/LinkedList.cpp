@@ -11,6 +11,9 @@ LinkedList::add(int newValue)
 	
 	_head = newNode;
 	
+	// adding at front, so if head is only item, newNode is the only node
+	if (_head->next() == NULL) 
+		_tail = newNode;	
 }
 void 
 LinkedList::addTail(int newValue)
@@ -28,6 +31,51 @@ LinkedList::addTail(int newValue)
 		_tail = newNode;	
 		_head = newNode;	
 	}
+}
+
+ListNode* 
+LinkedList::find(int value) const
+{
+	ListNode *curr;
+	curr = _head;
+	
+	while (curr!=NULL)
+	{
+		if (curr->element() == value)
+			return curr;
+		curr = curr -> next();
+	}
+	return NULL; // did not find what we are looking for ...
+}
+
+ListNode* findPrev(ListNode *findMe, ListNode *fromHead)
+{
+	cout << "We need to fix findPrev still ... many incorrect results at present!" << endl;
+	if (findMe==NULL || fromHead==NULL)
+		return NULL;
+		
+	ListNode *curr = fromHead;
+	
+	while (curr!=NULL)
+	{
+		if (curr->next() == findMe)
+			return curr;
+		curr=curr->next();	
+	}
+	return NULL; // may need to fix up
+}
+void 
+LinkedList::remove(ListNode *node)
+{
+	ListNode *prev = findPrev(node, _head); //= ????
+	prev->next() = node -> next();
+	
+}
+
+void 
+LinkedList::remove(int value)
+{
+	remove(find(value)); // ADDED THIS AFTER CLASS SO YOU CAN SEE MIDDLE VALUES REMOVED
 }
 
 ostream& operator<<(ostream &os, const LinkedList &list)

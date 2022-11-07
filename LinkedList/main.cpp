@@ -47,6 +47,31 @@ int main(int argc, char *argv[])
 		
 	cout << "List is now: {" << myList << "}" << endl;
 	
+	cout << "Enter a value to search for (-1 to stop):" ;
+	int value;
+	cin >> value;
+	
+	while (value!=-1)
+	{
+		cout << myList.find(value);
+		
+		cout << "Enter a value to search for (-1 to stop):" ;	
+		cin >> value;
+	}
+	
+	cout << "List is now: {" << myList << "}" << endl;
+	cout << "Enter a value to delete (-1 to stop):" ;
+	cin >> value;
+	
+	while (value!=-1)
+	{
+		myList.remove(value);
+		cout << "List is now: {" << myList << "}" << endl;
+		
+		cout << "Enter a value to delete (-1 to stop):" ;	
+		cin >> value;
+	}	
+	
 	return 0;
 }
 
