@@ -50,7 +50,6 @@ LinkedList::find(int value) const
 
 ListNode* findPrev(ListNode *findMe, ListNode *fromHead)
 {
-	cout << "We need to fix findPrev still ... many incorrect results at present!" << endl;
 	if (findMe==NULL || fromHead==NULL)
 		return NULL;
 		
@@ -67,9 +66,27 @@ ListNode* findPrev(ListNode *findMe, ListNode *fromHead)
 void 
 LinkedList::remove(ListNode *node)
 {
-	ListNode *prev = findPrev(node, _head); //= ????
-	prev->next() = node -> next();
+	if (!node)
+		return;
 	
+	ListNode *prev = findPrev(node, _head); //= ????
+	
+	if (node!=_head && node!=_tail)	// make sure we are a middle node !!!
+	{
+		prev->next() = node -> next();
+	}
+	else if (node == _head)
+	{
+		_head= _head->next(); // or _head = node->next();
+		
+		if (_head ==NULL) // we just removed the only node in the list!
+			_tail = NULL;
+	}
+	else // if (node == _tail)
+	{
+		prev->next() = node -> next(); // or prev->next() = NULL;
+		_tail = prev;
+	}
 }
 
 void 
