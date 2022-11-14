@@ -17,15 +17,15 @@ public:
 	
 	// accessors 
 	const std::string& value() const {return _element;}
-        const TreeNode* left() const {return _left;}
-        const TreeNode* right() const {return _right;}
-        const TreeNode* parent() const {return _parent;}
+   const TreeNode* left() const {return _left;}
+   const TreeNode* right() const {return _right;}
+   const TreeNode* parent() const {return _parent;}
 
 	// modifiers
 	std::string& value() {return _element;}
-        TreeNode* & left() {return _left;}
-        TreeNode* & right() {return _right;}
-        TreeNode* & parent() {return _parent;}
+   TreeNode* & left() {return _left;}
+   TreeNode* & right() {return _right;}
+   TreeNode* & parent() {return _parent;}
 	
 	bool isLeaf() const;
 	unsigned int depth() const;
