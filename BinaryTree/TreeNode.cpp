@@ -18,8 +18,7 @@ TreeNode::depth() const
 {
 	unsigned int ancestorCount=0;
 	
-	TreeNode *curr = this;  // will fix the error here next time (hint: think type casting)
-	
+	TreeNode *curr = (TreeNode *) this; 	
 	while(curr->_parent!=NULL)
 	{
 		ancestorCount++;
