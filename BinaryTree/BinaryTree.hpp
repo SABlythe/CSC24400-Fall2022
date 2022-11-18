@@ -15,7 +15,7 @@ public:
 	TreeNode *find(const std::string &findMe) const;
 	
 	void insert(const std::string &valueToAdd);
-	// will add remove later
+	void remove(const std::string &valueToDel);
 	
 	friend std::ostream& operator<<(std::ostream &os, const BinaryTree &bt);
 };
