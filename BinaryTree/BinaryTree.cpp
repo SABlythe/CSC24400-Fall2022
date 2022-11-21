@@ -135,6 +135,8 @@ BinaryTree::remove(const std::string &valueToDelete)
 			parent->left() = subtreeToMove;
 		else
 			parent->right() = subtreeToMove;	
+
+		subtreeToMove->parent() = parent;
 	}
 	else // i have 2 children
 	{
